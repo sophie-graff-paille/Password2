@@ -59,8 +59,7 @@ def verif_mdp(mdp, user):
     # si le mot de passe contient une majuscule ou plus, une minuscule ou plus, un chiffre ou plus et un caractère spécial ou plus, alors le mot de passe est valide
     if (u >= 1 and l >= 1 and d >= 1 and s >= 1):
         print("Mot de passe valide")
-        convert_data_to_json(user, mdp) # ajoute le nom d'utilisateur et le mot de passe hashé dans le fichier data.json
-        hash(user, mdp) # crypte le mot de passe
+        hasher(user, mdp) # crypte le mot de passe
         remise_a_zero() # remet à zéro les champs de saisie
         open_popup() # ouvre une fenêtre popup
     else:
@@ -94,7 +93,7 @@ def convert_data_to_json(user, hex_hash): # user = nom d'utilisateur, hex_hash =
         json.dump(dic, fichier, indent=2, separators=(',', ': '), ensure_ascii=False) # écrit dle dictionnaire dic dans le fichier data.json
 
 # fonction qui hash le mot de passe
-def hash(user, mdp):
+def hasher(user, mdp):
     # J'avais choisi de faire une boucle avant de faire l'interface graphique. J'ai donc laissé le code de la boucle en commentaire
     # pour que vous puissiez voir comment j'avais fait avant l'interface graphique
 
